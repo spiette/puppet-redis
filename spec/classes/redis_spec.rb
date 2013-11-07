@@ -11,6 +11,7 @@ describe 'redis' do
       it { should create_class('redis') }
       it { should create_class('redis::install') }
       it { should create_package('redis') }
+      it { should create_file("/etc/logrotate.d/redis") }
     end
   end
 end
