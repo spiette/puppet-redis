@@ -4,9 +4,9 @@ define redis::instance (
   $configfile = "/etc/redis${name}.conf",
   $pidfile = "/var/run/redis/redis${name}.pid",
   $logfile = "/var/log/redis/redis${name}.log",
-  $db_filename = "dump${name}.rdb",
+  $dbfilename = "dump${name}.rdb",
   $var_dir = "/var/lib/redis${name}",
-  $vm_swapfile = "/tmp/redis${name}.swap",
+  $vm_swap_file = "/tmp/redis${name}.swap",
   $bind_address = false,
   $timeout = 0,  # 0 = disabled
   $loglevel = 'notice',
@@ -37,9 +37,9 @@ define redis::instance (
     configfile   => $configfile,
     pidfile      => $pidfile,
     logfile      => $logfile,
-    db_filename  => $db_filename,
+    dbfilename   => $dbfilename,
     var_dir      => $var_dir,
-    vm_swapfile  => $vm_swapfile,
+    vm_swap_file => $vm_swap_file,
     timeout      => $timeout,
     loglevel     => $loglevel,
   }
