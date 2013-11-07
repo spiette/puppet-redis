@@ -19,7 +19,7 @@ define redis::instance (
     $redis_port = $port
   } else {
     if is_integer($name) {
-      $redis_port = 6379 + $name
+      $redis_port = 6378 + $name
     } else {
       $redis_port = 6379
     }
