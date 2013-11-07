@@ -41,4 +41,10 @@ define redis::instance::config(
     mode    => '0755',
     content => template('redis/redis.init.erb'),
   }
+  file { "/var/lib/redis${name}":
+    ensure => directory,
+    owner  => 'redis',
+    group  => 'root',
+    mode   => '0644',
+  }
 }
