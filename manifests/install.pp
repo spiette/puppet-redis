@@ -11,7 +11,7 @@ class redis::install {
     owner   => 'root',
     group   => 'root',
     mode    => '0440',
-    source  => 'puppet:///redis/redis.logrotate',
+    source  => 'puppet:///modules/redis/redis.logrotate',
     require => Package[$redis::params::pkgname],
   }
 }

@@ -15,11 +15,11 @@ define redis::instance (
   # 2) no redis_port defined
   # 2a) $name is_integer     => 6379+ $name
   # 2b) $name is not integer => 6379
-  if defined($port) {
+  if ($port) {
     $redis_port = $port
   } else {
     if is_integer($name) {
-      $redis_port = 6379 + $name
+      $redis_port = 6378 + $name
     } else {
       $redis_port = 6379
     }

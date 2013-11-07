@@ -31,7 +31,7 @@ define redis::instance::config(
     ensure  => present,
     owner   => 'root',
     group   => 'root',
-    mode    => '0440',
+    mode    => '0644',
     content => template('redis/redis.conf.erb')
   }
   file { "/etc/init.d/redis${name}":
@@ -40,5 +40,11 @@ define redis::instance::config(
     group   => 'root',
     mode    => '0755',
     content => template('redis/redis.init.erb'),
+  }
+  file { "/var/lib/redis${name}":
+    ensure => directory,
+    owner  => 'redis',
+    group  => 'root',
+    mode   => '0644',
   }
 }
