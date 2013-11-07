@@ -3,8 +3,9 @@
 # It ensure the service is running
 define redis::instance::service ($pidfile) {
   include redis::params
-  service { $redis::params::service:
-    ensure => running,
-    enable => true,
+  service { "redis${name}":
+    ensure    => running,
+    enable    => true,
+    hasstatus => true,
   }
 }

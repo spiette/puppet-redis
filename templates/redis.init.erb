@@ -11,7 +11,7 @@
 name="redis-server"
 exec="/usr/sbin/$name"
 pidfile="<%= @pidfile %>"
-REDIS_CONFIG="/etc/redis.conf"
+REDIS_CONFIG="<%= configfile %>"
 
 [ -e /etc/sysconfig/redis ] && . /etc/sysconfig/redis
 

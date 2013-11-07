@@ -29,8 +29,16 @@ define redis::instance::config(
   include redis::params
   file { $configfile:
     ensure  => present,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0440',
     content => template('redis/redis.conf.erb')
   }
+  file { "/etc/init.d/redis${name}":
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    content => template('redis/redis.init.erb'),
+  }
 }
-
