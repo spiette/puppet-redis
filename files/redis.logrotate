@@ -1,0 +1,14 @@
+##############################################################################
+## This file is managed by puppet.  Do NOT edit on the server, your changes   #
+## will be blown away on the next puppet run.                                 #
+###############################################################################
+#
+/var/log/redis/redis*.log {
+  weekly
+  rotate 10
+  copytruncate
+  delaycompress
+  compress
+  notifempty
+  missingok
+}
